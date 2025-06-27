@@ -6,6 +6,7 @@
 ### Informe de Auditoría de Sistemas  
 **Auditor:** La Torre Esquivel, José André  
 **Fecha:** 27 de junio de 2025  
+**Repositorio**: [AS_U3_EXAMEN_PRACTICO](https://github.com/tu_usuario/AS_U3_EXAMEN_PRACTICO)  
 
 ---
 
