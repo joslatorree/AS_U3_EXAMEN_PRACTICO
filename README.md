@@ -1,5 +1,5 @@
 
-# ![Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Logo_UPT.png/600px-Logo_UPT.png)
+#
 
 ## Facultad de Ingeniería - Carrera Profesional de Sistemas  
 ### Examen de Unidad  
