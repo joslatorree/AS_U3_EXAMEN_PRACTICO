@@ -50,12 +50,14 @@ Auditar el entorno DevIA360 para detectar vulnerabilidades en su configuración 
   ```ruby
   db.vm.network "private_network", ip: ENV["DB_IP"]
   ```
+  ![Anexo A](evidencias/C.PNG)
 
 - **Anexo D**: `.env` contiene credenciales en texto plano
   ```env
   DB_USER = 'wordpress'
   DB_PSWD = 'Epnewman123'
   ```
+  ![Anexo A](evidencias/D.PNG)
 
 - **Anexo G**: No hay segregación de entornos (todo apunta a entorno único)
   ```ruby
@@ -63,15 +65,18 @@ Auditar el entorno DevIA360 para detectar vulnerabilidades en su configuración 
   # Todo el entorno apunta a configuración fija sin distinción entre producción y desarrollo
   ```
 
+  ![Anexo A](evidencias/G.PNG)
 - **Anexo H**: Archivos de prueba `default_test.rb` sin validaciones activas
   ```ruby
   describe user('root'), :skip do
     it { should exist }
   end
   ```
+  ![Anexo A](evidencias/H.PNG)
 
 - **Anexo I**: kitchen.yml define entornos pero no hay ejecución funcional (por falta de instalación)
 
+  ![Anexo A](evidencias/I.PNG)
 ---
 
 ## 4. Recomendaciones
