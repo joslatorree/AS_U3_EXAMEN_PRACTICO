@@ -2,7 +2,7 @@
 ## Auditoría al Despliegue DevIA360 basado en Vagrant y Chef  
 **Nombre del Auditor**: La Torre Esquivel, José André  
 **Curso**: Auditoría de Sistemas – Unidad 3  
-**Repositorio**: 
+**Repositorio**: https://github.com/joslatorree/AS_U3_EXAMEN_PRACTICO.git
 
 ---
 
