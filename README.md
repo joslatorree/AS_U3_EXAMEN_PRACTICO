@@ -43,6 +43,6 @@ La auditoría se desarrolló en tres fases: preparación del entorno, revisión 
 ### 🔹 Clonación y Ejecución
 
 ```bash
-git clone https://github.com/tu_usuario/Chef_Vagrant_Wp.git
+git clone https://github.com/joslatorree/AS_U3_EXAMEN_PRACTICO.git
 cd Chef_Vagrant_Wp
 vagrant up
