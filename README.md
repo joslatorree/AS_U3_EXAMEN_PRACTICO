@@ -26,11 +26,11 @@ Este informe se elabora como parte del examen práctico de la asignatura Auditor
 Auditar el entorno DevIA360 para detectar vulnerabilidades en su configuración automatizada mediante Vagrant y Chef.
 
 ### Objetivos Específicos
-1. Validar la correcta ejecución del entorno con `vagrant up`.
-2. Revisar configuraciones de red, puertos y acceso en `Vagrantfile`.
-3. Analizar las recetas de Chef para detectar riesgos de seguridad.
-4. Realizar pruebas de seguridad sobre el entorno desplegado.
-5. Elaborar una matriz de riesgos basada en los hallazgos.
+1. Detectar exposición de credenciales y variables sensibles.
+2. Verificar configuraciones de red no seguras o sin autenticación.
+3. Revisar recetas de Chef para identificar configuraciones hardcodeadas.
+4. Determinar la existencia de separación entre entornos (dev/prod).
+5. Evaluar la falta de modularización y control de versiones.
 
 ---
 
@@ -57,11 +57,20 @@ Auditar el entorno DevIA360 para detectar vulnerabilidades en su configuración 
   DB_PSWD = 'Epnewman123'
   ```
 
-- **Anexo E**: Falta de versión específica en `metadata.rb` (pendiente de captura)
-
-- **Anexo F**: `/var/log/` sin logs de aplicación visibles (pendiente)
-
 - **Anexo G**: No hay segregación de entornos (todo apunta a entorno único)
+  ```ruby
+  # No se usa ninguna variable ENV['ENVIRONMENT']
+  # Todo el entorno apunta a configuración fija sin distinción entre producción y desarrollo
+  ```
+
+- **Anexo H**: Archivos de prueba `default_test.rb` sin validaciones activas
+  ```ruby
+  describe user('root'), :skip do
+    it { should exist }
+  end
+  ```
+
+- **Anexo I**: kitchen.yml define entornos pero no hay ejecución funcional (por falta de instalación)
 
 ---
 
@@ -69,16 +78,16 @@ Auditar el entorno DevIA360 para detectar vulnerabilidades en su configuración 
 
 - Reemplazar uso de `.env` por variables seguras y cifradas.
 - Validar disponibilidad de IPs antes del despliegue.
-- Agregar versionado en `metadata.rb` para cada receta.
-- Implementar roles separados para desarrollo y producción.
-- Configurar logging estructurado y rotación de logs.
+- Separar configuraciones por entorno (dev/prod/test).
+- Implementar pruebas funcionales en `default_test.rb`.
+- Documentar control de versiones y activar seguridad por defecto.
 
 ---
 
 ## 5. Conclusiones
 
 El entorno DevIA360 cumple su función técnica de desplegar WordPress, pero presenta fallas de seguridad y trazabilidad que lo hacen vulnerable.  
-Las mejoras sugeridas deben ser implementadas antes de utilizar este entorno en producción.
+Las mejoras sugeridas deben ser implementadas antes de utilizar este entorno en producción, incluyendo pruebas activas, control de entornos y protección de credenciales.
 
 ---
 
@@ -97,4 +106,5 @@ Las mejoras sugeridas deben ser implementadas antes de utilizar este entorno en 
 | Credenciales sin cifrado     | `.env`, `Vagrantfile` (D) | Alto    | 90%          | Crítico         |
 | IPs fijas no validadas       | `.env` (C)                | Medio   | 75%          | Alto            |
 | Ausencia de segregación      | Recetas y red (G)         | Medio   | 80%          | Alto            |
-| Logs no gestionados          | `/var/log/` vacío (F)     | Alto    | 70%          | Alto            |
+| Pruebas de seguridad inactivas | `default_test.rb` vacío (H) | Alto | 85%          | Alto            |
+| kitchen no funcional         | falta de entorno Ruby/Chef (I) | Medio | 60%       | Medio           |
