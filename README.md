@@ -1,5 +1,5 @@
 
-#![Captura de WordPress](evidencias/logoupt.png)
+![Captura de WordPress](evidencias/logoupt.png)
 
 ## Facultad de Ingeniería - Carrera Profesional de Sistemas  
 ### Examen de Unidad  
@@ -39,10 +39,10 @@ Auditar el entorno DevIA360 para detectar vulnerabilidades en su configuración 
 ### 3.1 Evidencia de ejecución
 
 - **Anexo A**: `vagrant status`
-  ![Anexo A](evidencias/anexo_a_vagrant_status.png)
+  ![Anexo A](evidencias/A.png)
 
 - **Anexo B**: WordPress en ejecución
-  ![Anexo B](evidencias/anexo_b_wordpress.png)
+  ![Anexo B](evidencias/B.png)
 
 ### 3.2 Configuraciones inseguras detectadas
 
