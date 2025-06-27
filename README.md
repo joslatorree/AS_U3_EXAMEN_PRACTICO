@@ -39,10 +39,10 @@ Auditar el entorno DevIA360 para detectar vulnerabilidades en su configuración 
 ### 3.1 Evidencia de ejecución
 
 - **Anexo A**: `vagrant status`
-  ![Anexo A](evidencias/A.png)
+  ![Anexo A](evidencias/A.PNG)
 
 - **Anexo B**: WordPress en ejecución
-  ![Anexo B](evidencias/B.png)
+  ![Anexo B](evidencias/B.PNG)
 
 ### 3.2 Configuraciones inseguras detectadas
 
